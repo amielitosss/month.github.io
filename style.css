@@ -27,10 +27,8 @@ header {
 }
 
 nav {
- background-color: #ec72c3;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  background-color: #ec72c3;
+  width: 100%;
   padding: 20px 0;
   border-radius: 0;
   margin-top: 10px;
@@ -59,12 +57,15 @@ nav a:hover {
   color: #f70bbc;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
-  width: 100%;
-  height: 100%;
   background: #be1e2d;
-  overflow: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .heart {
@@ -145,7 +146,7 @@ body {
 }
 
 #loader {
- position: fixed;
+  position: fixed;
   z-index: 9999;
   inset: 0;
   width: 100vw;
@@ -165,30 +166,148 @@ body {
   object-fit: contain;
 }
 
-
 .gallery {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 32px;
-  margin: 40px 0;
+  margin: 40px auto;
+  max-width: 700px;
+  width: 100%;
 }
 
 .gallery-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 320px;
+  max-width: 90vw; /* Set a fixed width for all items */
+}
+
+.gallery-item:nth-child(odd) {
+  align-self: flex-start; /* left side */
+}
+
+.gallery-item:nth-child(even) {
+  align-self: flex-end; /* right side */
 }
 
 .image {
-  max-width: 90vw;
-  max-height: 300px;
+  width: 100%;
+  height: 320px;
+  object-fit: cover; /* Crops to fill the square, keeps all images same size */
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: block;
 }
 
 .arrow {
   font-size: 2.5em;
   color: #f70bbc;
   margin-top: 10px;
+}
+
+/* Right arrow for odd (left) items */
+.gallery-item:nth-child(odd) .arrow {
+  content: "→";
+  color: #f70bbc;
+  text-align: right;
+}
+
+/* Left arrow for even (right) items */
+.gallery-item:nth-child(even) .arrow {
+  content: "←";
+  color: #f70bbc;
+  text-align: left;
+}
+
+/* Hide arrow for last image (optional) */
+.gallery-item:last-child .arrow {
+  display: none;
+}
+
+.gallery-button {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.gallery-button button {
+  background: #f70bbc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gallery-button button:hover {
+  background: #ec72c3;
+}
+
+/* Responsive adjustments for mobile and tablet */
+@media (max-width: 900px) {
+  .container {
+    max-width: 98vw;
+    width: 98vw;
+    font-size: 18px;
+    padding: 16px 4vw;
+  }
+  .item-container {
+    font-size: 1em;
+  }
+  header h1 {
+    font-size: 1.5em;
+    padding: 18px 0 8px 0;
+  }
+  nav ul {
+    gap: 10px;
+    font-size: 1em;
+  }
+  .gallery {
+    max-width: 98vw;
+    gap: 18px;
+  }
+  .gallery-item {
+    max-width: 90vw;
+  }
+  .image {
+    max-width: 90vw;
+    height: 40vw;
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .container {
+    font-size: 15px;
+    padding: 10px 2vw;
+  }
+  header h1 {
+    font-size: 1.1em;
+    padding: 12px 0 6px 0;
+  }
+  nav ul {
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .gallery-item {
+    width: 90vw;
+    max-width: 320px;
+  }
+  .image {
+    width: 100%;
+    height: 90vw; /* Always square, but shrinks on mobile */
+    max-height: 320px;
+    object-fit: cover;
+  }
+  .arrow {
+    font-size: 2em;
+  }
+  .gallery-button button {
+    font-size: 1em;
+    padding: 12px 18px;
+  }
 }
