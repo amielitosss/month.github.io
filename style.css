@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap);
-
 body {
   margin: 0;
   font-size: 30px;
@@ -8,14 +7,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 main {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 header {
   width: 100%;
   display: flex;
@@ -25,7 +22,6 @@ header {
   position: relative;
   z-index: 1;
 }
-
 nav {
   background-color: #ec72c3;
   width: 100%;
@@ -35,7 +31,6 @@ nav {
   display: flex;
   justify-content: center;
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -45,29 +40,24 @@ nav ul {
   padding: 0;
   margin: 0;
 }
-
 nav a {
   text-decoration: none;
   color: inherit;
-  font-weight: bold;
+  font-weight: 700;
   transition: color 0.2s;
 }
-
 nav a:hover {
   color: #f70bbc;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 html,
 body {
   background: #be1e2d;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
 .heart {
   width: 100%;
   height: 100%;
@@ -85,7 +75,6 @@ body {
     fill: #fff;
   }
 }
-
 .heart:nth-child(1) {
   animation-delay: -1s;
 }
@@ -101,7 +90,6 @@ body {
 .heart:nth-child(5) {
   animation-delay: -5s;
 }
-
 @keyframes radiate {
   0% {
     opacity: 0;
@@ -110,7 +98,6 @@ body {
   1% {
     opacity: 0.15;
   }
-
   100% {
     opacity: 0;
     transform: scale(2);
@@ -144,7 +131,6 @@ body {
   line-height: 0.8;
   font-size: 30px;
 }
-
 #loader {
   position: fixed;
   z-index: 9999;
@@ -159,13 +145,11 @@ body {
   transition: opacity 0.7s ease;
   pointer-events: all;
 }
-
 #loader video {
   max-width: 100vw;
   max-height: 100vh;
   object-fit: contain;
 }
-
 .gallery {
   display: flex;
   flex-direction: column;
@@ -175,60 +159,47 @@ body {
   max-width: 700px;
   width: 100%;
 }
-
 .gallery-item {
   width: 320px;
-  max-width: 90vw; /* Set a fixed width for all items */
+  max-width: 90vw;
 }
-
 .gallery-item:nth-child(odd) {
-  align-self: flex-start; /* left side */
+  align-self: flex-start;
 }
-
 .gallery-item:nth-child(even) {
-  align-self: flex-end; /* right side */
+  align-self: flex-end;
 }
-
 .image {
   width: 100%;
   height: 320px;
-  object-fit: cover; /* Crops to fill the square, keeps all images same size */
+  object-fit: cover;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
   display: block;
 }
-
 .arrow {
   font-size: 2.5em;
   color: #f70bbc;
   margin-top: 10px;
 }
-
-/* Right arrow for odd (left) items */
 .gallery-item:nth-child(odd) .arrow {
   content: "→";
   color: #f70bbc;
   text-align: right;
 }
-
-/* Left arrow for even (right) items */
 .gallery-item:nth-child(even) .arrow {
   content: "←";
   color: #f70bbc;
   text-align: left;
 }
-
-/* Hide arrow for last image (optional) */
 .gallery-item:last-child .arrow {
   display: none;
 }
-
 .gallery-button {
   display: flex;
   justify-content: center;
   margin: 40px 0;
 }
-
 .gallery-button button {
   background: #f70bbc;
   color: #fff;
@@ -239,12 +210,9 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 .gallery-button button:hover {
   background: #ec72c3;
 }
-
-/* Responsive adjustments for mobile and tablet */
 @media (max-width: 900px) {
   .container {
     max-width: 98vw;
@@ -276,7 +244,6 @@ body {
     max-height: 320px;
   }
 }
-
 @media (max-width: 600px) {
   body {
     font-size: 16px;
@@ -299,7 +266,7 @@ body {
   }
   .image {
     width: 100%;
-    height: 90vw; /* Always square, but shrinks on mobile */
+    height: 90vw;
     max-height: 320px;
     object-fit: cover;
   }
